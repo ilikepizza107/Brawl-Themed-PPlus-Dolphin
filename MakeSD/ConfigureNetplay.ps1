@@ -6,7 +6,7 @@ copy "../NetplayFiles/seal" "../Build/BrawlTP+/pf/toy/" -Force -Recurse -errorac
 copy "../NetplayFiles/Netplay" "../Build/BrawlTP+/Source/" -Force -Recurse -erroraction 'silentlycontinue'
 copy "../NetplayFiles/dnet.cmnu" "../Build/BrawlTP+/pf/menu3/" -Force -erroraction 'silentlycontinue'
 del "../Build/BrawlTP+/pf/sound/netplaylist" -Confirm:$false -Recurse -erroraction 'silentlycontinue'
-Copy-Item "../Build/BrawlTP+/pf/sound/tracklist" -Destination "../Build/Project+/pf/sound/netplaylist" -Force -Recurse -erroraction 'silentlycontinue'
+Copy-Item "../Build/BrawlTP+/pf/sound/tracklist" -Destination "../Build/BrawlTP+/pf/sound/netplaylist" -Force -Recurse -erroraction 'silentlycontinue'
 del "../Build/BrawlTP+/st/" -Confirm:$false -Recurse -erroraction 'silentlycontinue'
 
 #NETPLAY.txt
@@ -23,13 +23,13 @@ $netplayContent[15] += "########################################################
 $netplayContent | Set-Content $netplayPath
 
 #NETBOOST.txt
-$netboostPath = "..\Build\Project+\NETBOOST.txt"
+$netboostPath = "..\Build\BrawlTP+\NETBOOST.txt"
 (Get-Content $netboostPath).replace('Source/Project+/StageFiles.asm', 'Source/Netplay/Net-StageFiles.asm') | Set-Content $netboostPath
 (Get-Content $netboostPath).replace('.include Source/Extras/Console.asm', '#.include Source/Extras/Console.asm') | Set-Content $netboostPath
 (Get-Content $netboostPath).replace('#.include Source/Extras/Netplay.asm', '.include Source/Extras/Netplay.asm') | Set-Content $netboostPath
 
 #Net-MultiGCT
-(Get-Content "..\Build\Project+\Source\Project+\MultiGCT.asm") -replace 'BOOST.GCT', 'NETBOOST.GCT' | Out-File -encoding ASCII "..\Build\Project+\Source\Netplay\Net-MultiGCT.asm"
+(Get-Content "..\Build\BrawlTP+\Source\Project+\MultiGCT.asm") -replace 'BOOST.GCT', 'NETBOOST.GCT' | Out-File -encoding ASCII "..\Build\BrawlTP+\Source\Netplay\Net-MultiGCT.asm"
 
 #Net-StageFiles
 $stagefilesPath = "..\Build\BrawlTP+\Source\Netplay\Net-StageFiles.asm"
