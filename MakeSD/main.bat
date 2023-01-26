@@ -30,7 +30,7 @@ if %PURGE%==1 (
 
 call mount.bat || goto error
 
-ROBOCOPY "%BUILD_DIR:\=\\%Project+" "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+." ^
+ROBOCOPY "%BUILD_DIR:\=\\%BrawlTP+" "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+." ^
     /E ^
     /NS ^
     /NP ^
@@ -38,10 +38,10 @@ ROBOCOPY "%BUILD_DIR:\=\\%Project+" "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project
     %PURGE_COMMAND%
 IF %ERRORLEVEL% GEQ 8 goto error
 
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\RSBE01.txt"
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\BOOST.txt"
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\NETPLAY.txt"
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\NETBOOST.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\RSBE01.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\BOOST.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\NETPLAY.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\BrawlTP+\NETBOOST.txt"
 
 fsutil file createnew "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\DON'T PUT THIS BUILD ON A WII.txt" 0
 
